@@ -3,6 +3,7 @@ package lzc.com.example.modemo.dao;
 import lzc.com.example.modemo.entity.Course;
 import lzc.com.example.modemo.entity.Instructor;
 import lzc.com.example.modemo.entity.InstructorDetail;
+import lzc.com.example.modemo.entity.Student;
 
 import java.util.List;
 
@@ -35,4 +36,6 @@ public interface AppDAO {
     Course findCourseAndReviewById(int theId);
 
     Course findCourseAndStudentById(int theId);
+
+    Student findStudentAndCoursesById(int theId);
 }

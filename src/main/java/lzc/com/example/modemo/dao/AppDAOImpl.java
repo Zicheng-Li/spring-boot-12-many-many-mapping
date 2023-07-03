@@ -5,6 +5,7 @@ import jakarta.persistence.TypedQuery;
 import lzc.com.example.modemo.entity.Course;
 import lzc.com.example.modemo.entity.Instructor;
 import lzc.com.example.modemo.entity.InstructorDetail;
+import lzc.com.example.modemo.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -147,6 +148,16 @@ public class AppDAOImpl implements AppDAO {
         // execute query
         Course course = query.getSingleResult();
         return course;
+    }
+
+    @Override
+    public Student findStudentAndCoursesById(int theId) {
+        // create a query
+        TypedQuery<Student> query = entityManager.createQuery("select s from Student s " + "JOIN FETCH s.courses " + "where s.id = :data" ,Student.class);
+        query.setParameter("data" ,theId);
+        // execute query
+        Student student = query.getSingleResult();
+        return student;
     }
 
 }
