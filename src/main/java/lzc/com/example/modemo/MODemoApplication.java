@@ -22,9 +22,26 @@ public class MODemoApplication {
 
 //			createCourseAndStudent(appDAO);
 //			findCourseAndStudent(appDAO);
-			findStudentAndCourse(appDAO);
+//			findStudentAndCourse(appDAO);
+			addMoreCourseForStudent(appDAO);
 
 		};
+	}
+
+	private void addMoreCourseForStudent(AppDAO appDAO) {
+		int theId = 2;
+		Student student = appDAO.findStudentAndCoursesById(theId);
+		Course course1 = new Course("spring");
+		Course course2 = new Course("spring-boot");
+
+		student.addCourse(course1);
+		student.addCourse(course2);
+
+		System.out.println("updating student" + student);
+		System.out.println("associated course:" + student.getCourses());
+		appDAO.update(student);
+		System.out.println("done!");
+
 	}
 
 	private void findStudentAndCourse(AppDAO appDAO) {
