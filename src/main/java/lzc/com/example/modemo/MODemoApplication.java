@@ -23,9 +23,6 @@ public class MODemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
 
-//			createCourseAndReview(appDAO);
-//			findCourseAndReview(appDAO);
-			deleteCourseAndReview(appDAO);
 		};
 	}
 	private void deleteCourseAndReview(AppDAO appDAO) {
