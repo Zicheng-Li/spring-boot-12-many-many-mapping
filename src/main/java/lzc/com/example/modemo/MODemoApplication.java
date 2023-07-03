@@ -23,9 +23,19 @@ public class MODemoApplication {
 //			createCourseAndStudent(appDAO);
 //			findCourseAndStudent(appDAO);
 //			findStudentAndCourse(appDAO);
-			addMoreCourseForStudent(appDAO);
+//			addMoreCourseForStudent(appDAO);
+
+//			deleteCourse(appDAO);
+			deleteStudent(appDAO);
 
 		};
+	}
+
+	private void deleteStudent(AppDAO appDAO) {
+		int theId = 1;
+		System.out.println("deleting student with id: " + theId);
+        appDAO.deleteStudentById(theId);
+        System.out.println("done!");
 	}
 
 	private void addMoreCourseForStudent(AppDAO appDAO) {
