@@ -38,9 +38,9 @@ public class Course {
     public void addStudent(Student theStudent){
         if(students==null){
             students=new ArrayList<Student>();
-        }else {
-            students.add(theStudent);
         }
+            students.add(theStudent);
+
     }
 
     public List<Student> getStudents() {

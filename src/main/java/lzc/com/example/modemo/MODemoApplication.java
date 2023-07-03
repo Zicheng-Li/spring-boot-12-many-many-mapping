@@ -1,10 +1,7 @@
 package lzc.com.example.modemo;
 
 import lzc.com.example.modemo.dao.AppDAO;
-import lzc.com.example.modemo.entity.Course;
-import lzc.com.example.modemo.entity.Instructor;
-import lzc.com.example.modemo.entity.InstructorDetail;
-import lzc.com.example.modemo.entity.Review;
+import lzc.com.example.modemo.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,8 +20,25 @@ public class MODemoApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO) {
 		return runner -> {
 
+			createCourseAndStudent(appDAO);
+
 		};
 	}
+
+	private void createCourseAndStudent(AppDAO appDAO) {
+		// create a course
+        Course course = new Course("javascript");
+		Student student1 = new Student("jjjj","sttt","jjlin@rbc.com");
+		Student student2 = new Student("qqq","hanland","whanland@rbc.com");
+		course.addStudent(student1);
+		course.addStudent(student2);
+        System.out.println("saving the course");
+		System.out.println("the students: " + course.getStudents());
+        System.out.println(course);
+		appDAO.save(course);
+        System.out.println("done!");
+	}
+
 	private void deleteCourseAndReview(AppDAO appDAO) {
 		int theId=10;
 		System.out.println("Deleting the course and review with id: " + theId);
